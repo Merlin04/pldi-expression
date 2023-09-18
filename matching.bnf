@@ -1,0 +1,25 @@
+// match lst with
+// | [] -> error
+// | h :: [] -> error
+// | h1 :: (h2 :: []) -> h1
+// | h :: t -> second_last t
+
+<match> ::= "match " id <match_with> <opt_ws> <cases_list>
+<match_with> ::= " with " | " with" <opt_ws> '|'
+
+<cases_list> ::= <case> <opt_ws> '|' <opt_ws> <cases_list> | <case>
+<case> ::= <list_pattern> <opt_ws> '->' <opt_ws> <expr>
+<list_pattern> ::=
+    '(' <opt_ws> <list_pattern> <opt_ws> ')'
+  | <list_pattern> <opt_ws> '::' <opt_ws> <list_pattern>
+  | '[]'
+  | id
+
+<opt_ws> ::= ws_char <opt_ws> | ''
+ws_char ::= ' ' | '\n'
+
+// syntax that https://mdkrajnak.github.io/ebnftest/ uses
+id ::= #"[A-Za-z0-9]+"
+
+// for testing
+<expr> ::= 'expr'

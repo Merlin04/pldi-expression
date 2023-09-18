@@ -1,0 +1,17 @@
+<expr> ::= <or_exp>
+
+<or_exp> ::= <or_exp> '|' <and_exp> | <and_exp>
+<and_exp> ::= <and_exp> '&' <eq_exp> | <eq_exp>
+<eq_exp> ::= <eq_exp> <eq_tok> <add_exp> | <add_exp>
+<eq_tok> ::= '=' | '<'
+<add_exp> ::= <add_exp> <add_tok> <mul_exp> | <mul_exp>
+<add_tok> ::= '+' | '-'
+<mul_exp> ::= <mul_exp> <mul_tok> <not_exp> | <not_exp>
+<mul_tok> ::= '*' | '/' | 'mod'
+<not_exp> ::= 'not' <expr> | <literal_exp>
+
+<literal_exp> ::= int | id | 'true' | 'false' | <paren_exp>
+<paren_exp> ::= '(' <expr> ')'
+
+int ::= #'[0-9]+'
+id ::= #'[A-Za-z0-9]+'

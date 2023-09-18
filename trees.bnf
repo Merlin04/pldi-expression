@@ -1,0 +1,2 @@
+<tree> ::= leaf | '(' <tree> ' ' $int ' ' <tree> ')'
+leaf ::= '.'

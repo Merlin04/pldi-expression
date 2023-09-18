@@ -1,0 +1,54 @@
+<component name="libraryTable">
+  <library name="switch:default" type="OCaml">
+    <CLASSES />
+    <JAVADOC />
+    <OCAML_SOURCES>
+      <root url="file://$USER_HOME$/.opam/default/doc/logs" />
+      <root url="file://$USER_HOME$/.opam/default/doc/uucp" />
+      <root url="file://$USER_HOME$/.opam/default/doc/uuseg" />
+      <root url="file://$USER_HOME$/.opam/default/lib/csexp" />
+      <root url="file://$USER_HOME$/.opam/default/lib/dune-configurator" />
+      <root url="file://$USER_HOME$/.opam/default/lib/findlib" />
+      <root url="file://$USER_HOME$/.opam/default/lib/lambda-term" />
+      <root url="file://$USER_HOME$/.opam/default/lib/logs" />
+      <root url="file://$USER_HOME$/.opam/default/lib/lwt" />
+      <root url="file://$USER_HOME$/.opam/default/lib/lwt/unix" />
+      <root url="file://$USER_HOME$/.opam/default/lib/lwt_react" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/analysis" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/config" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/dot_protocol" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/extend" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/kernel" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/ocaml_merlin_specific" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/ocaml_parsing" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/ocaml_preprocess" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/ocaml_typing" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/ocaml_utils" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/os_ipc" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/query_commands" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/query_protocol" />
+      <root url="file://$USER_HOME$/.opam/default/lib/merlin-lib/utils" />
+      <root url="file://$USER_HOME$/.opam/default/lib/mew" />
+      <root url="file://$USER_HOME$/.opam/default/lib/mew_vi" />
+      <root url="file://$USER_HOME$/.opam/default/lib/ocaml" />
+      <root url="file://$USER_HOME$/.opam/default/lib/ocplib-endian" />
+      <root url="file://$USER_HOME$/.opam/default/lib/ocplib-endian/bigstring" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/emacs" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/glob" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/pcre" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/perl" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/posix" />
+      <root url="file://$USER_HOME$/.opam/default/lib/re/str" />
+      <root url="file://$USER_HOME$/.opam/default/lib/react" />
+      <root url="file://$USER_HOME$/.opam/default/lib/result" />
+      <root url="file://$USER_HOME$/.opam/default/lib/trie" />
+      <root url="file://$USER_HOME$/.opam/default/lib/utop" />
+      <root url="file://$USER_HOME$/.opam/default/lib/xdg" />
+      <root url="file://$USER_HOME$/.opam/default/lib/yojson" />
+      <root url="file://$USER_HOME$/.opam/default/lib/zed" />
+      <root url="file://$USER_HOME$/.opam/default/share/ocaml-config" />
+    </OCAML_SOURCES>
+    <SOURCES />
+  </library>
+</component>

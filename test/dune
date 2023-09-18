@@ -1,0 +1,5 @@
+(env (dev (flags (:standard -w a-32))))
+
+(test
+ (name expression)
+ (libraries expression ounit2))
