@@ -68,7 +68,7 @@ and eq_exp : parser_fn = fun s -> dyadic_lassc_parser [(Eq, fun a b -> Equal (a,
 and add_exp : parser_fn = fun s -> dyadic_lassc_parser [(Plus, fun a b -> Add (a, b)); (Dash, fun a b -> Sub (a, b))] mul_exp s
 and mul_exp : parser_fn = fun s -> dyadic_lassc_parser [(Star, fun a b -> Mul (a, b)); (Slash, fun a b -> Div (a, b)); (Mod, fun a b -> ModExp (a, b))] unary_exp s
 and unary_exp : parser_fn = function
-  | Not :: r -> let e, r2 = parse_expr r in (NotExp (e), r2)
+  | Not :: r -> let e, r2 = unary_exp r in (NotExp (e), r2)
   | r -> literal_exp r
 and literal_exp : parser_fn = function
   | Lit i :: r -> Int i, r
