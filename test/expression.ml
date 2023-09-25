@@ -200,12 +200,12 @@ let let_tests = "test suite for let-expressions" >::: [
 let all_tests = "full test suite for expressions" >::: [
     lex_tests;
     parse_tests;
- (* interp_tests;
+    interp_tests;
     sub_div_mod_tests;
     compare_tests;
     bool_tests;
     if_tests;
-    let_tests; *)
+    let_tests;
   ]
 
 let _ = run_test_tt_main all_tests

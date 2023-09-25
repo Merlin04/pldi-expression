@@ -16,6 +16,8 @@ type expr =
   | Boolean of bool
   | Id of string
   | Int of int
+  | IfExp of expr * expr * expr
+  | LetExp of string * expr * expr
 
 let rec print_expr : expr -> string = function
   | Or (e1, e2) -> "(" ^ print_expr e1 ^ ") | (" ^ print_expr e2 ^ ")"
@@ -31,6 +33,8 @@ let rec print_expr : expr -> string = function
   | Add (e1, e2) -> "(" ^ print_expr e1 ^ ") + (" ^ print_expr e2 ^ ")"
   | Mul (e1, e2) -> "(" ^ print_expr e1 ^ ") * (" ^ print_expr e2 ^ ")"
   | Int i -> string_of_int i
+  | IfExp (cond, e1, e2) -> "if " ^ print_expr cond ^ " then " ^ print_expr e1 ^ " else " ^ print_expr e2
+  | LetExp (i, e1, e2) -> "let " ^ i ^ " = " ^ print_expr e1 ^ " in " ^ print_expr e2
 
 (* All of the parsing functions here have type
    token list -> expr * token list. The idea here is that the function takes a
@@ -75,6 +79,27 @@ and literal_exp : parser_fn = function
   | Var s :: r -> Id s, r
   | True :: r -> Boolean true, r
   | False :: r -> Boolean false, r
+  | r -> if_exp r
+and if_exp : parser_fn = function
+  | If :: r -> let cond, r2 = parse_expr r in (match r2 with
+    | Then :: r3 -> let e, r4 = parse_expr r3 in (match r4 with
+      | Else :: r5 -> let e2, r6 = parse_expr r5 in (IfExp (cond, e, e2), r6)
+      | t :: _ -> raise (ParseError ("Expected else, got " ^ tok_to_str t))
+      | [] -> raise (ParseError "Expected else, got end of input"))
+    | t :: _ -> raise (ParseError ("Expected then, got " ^ tok_to_str t))
+    | [] -> raise (ParseError "Expected then, got end of input"))
+  | r -> let_exp r
+and let_exp : parser_fn = function
+  | Let :: r -> (match r with
+    | Var i :: r2 -> (match r2 with
+      | Eq :: r3 -> let e, r4 = parse_expr r3 in (match r4 with
+        | In :: r5 -> let e2, r6 = parse_expr r5 in (LetExp (i, e, e2), r6)
+        | t :: _ -> raise (ParseError ("Expected in, got " ^ tok_to_str t))
+        | [] -> raise (ParseError "Expected in, got end of input"))
+      | t :: _ -> raise (ParseError ("Expected =, got " ^ tok_to_str t))
+      | [] -> raise (ParseError "Expected =, got end of input"))
+    | t :: _ -> raise (ParseError ("Expected identifier, got " ^ tok_to_str t))
+    | [] -> raise (ParseError "Expected identifier, got end of input"))
   | r -> paren_exp r
 and paren_exp : parser_fn = function
   | LParen :: r -> let e, r2 = parse_expr r in (match r2 with
